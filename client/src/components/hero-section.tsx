@@ -139,18 +139,16 @@ export function HeroSection() {
               <Mail className="mr-2 h-4 w-4" />
               Get In Touch
             </Button>
-            <Button
+            <button
               onClick={() => {
-                console.log("Button clicked, showResume:", showResume);
+                console.log("Direct button clicked!");
                 setShowResume(true);
-                console.log("After setting, showResume should be true");
               }}
-              variant="outline"
-              className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 rounded-full font-semibold transition-all duration-300"
+              className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2"
             >
-              <Eye className="mr-2 h-4 w-4" />
+              <Eye className="h-4 w-4" />
               View My Resume
-            </Button>
+            </button>
             
 
           </motion.div>
@@ -202,10 +200,118 @@ export function HeroSection() {
       </motion.div>
 
       {/* Resume Modal */}
-      <SimpleResumeModal 
-        isOpen={showResume}
-        onClose={() => setShowResume(false)}
-      />
+      {showResume && (
+        <div 
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-50 p-4"
+          onClick={() => setShowResume(false)}
+        >
+          <div 
+            className="bg-white dark:bg-gray-900 border rounded-lg max-w-4xl max-h-[90vh] overflow-y-auto w-full relative p-6"
+            onClick={(e) => e.stopPropagation()}
+            onContextMenu={(e) => e.preventDefault()}
+            style={{ userSelect: 'none' }}
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between mb-6 border-b pb-4">
+              <h2 className="text-2xl font-bold text-primary">Resume - Abhishek Mishra</h2>
+              <button 
+                onClick={() => setShowResume(false)}
+                className="text-gray-500 hover:text-gray-700 text-xl font-bold"
+              >
+                ×
+              </button>
+            </div>
+
+            {/* Content */}
+            <div className="space-y-6">
+              {/* Personal Info */}
+              <div className="text-center">
+                <h1 className="text-3xl font-bold text-primary mb-2">Abhishek Mishra</h1>
+                <p className="text-xl text-gray-600 mb-4">Backend Java Developer & Team Lead</p>
+                <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-600">
+                  <span>📞 +91-7063330674</span>
+                  <span>✉️ abhishekmsr2000@gmail.com</span>
+                  <span>💼 LinkedIn: abhishek-mishra-ba559b181</span>
+                </div>
+              </div>
+
+              {/* Experience */}
+              <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4 text-primary">Professional Experience</h3>
+                
+                <div className="mb-6">
+                  <div className="flex justify-between items-start mb-2">
+                    <h4 className="font-semibold text-lg">Senior Software Engineer</h4>
+                    <span className="text-sm bg-primary text-white px-2 py-1 rounded">Jan 2023 - Present</span>
+                  </div>
+                  <p className="font-medium text-primary mb-1">Quotus Software Solutions - Noida, India</p>
+                  <ul className="list-disc list-inside space-y-1 text-sm">
+                    <li>Led a team of 3 developers in designing and implementing microservices architecture</li>
+                    <li>Developed RESTful APIs using Spring Boot and Spring Framework</li>
+                    <li>Implemented database optimization resulting in 40% performance improvement</li>
+                    <li>Collaborated with cross-functional teams to deliver high-quality software solutions</li>
+                  </ul>
+                </div>
+
+                <div className="mb-4">
+                  <div className="flex justify-between items-start mb-2">
+                    <h4 className="font-semibold text-lg">Software Engineer</h4>
+                    <span className="text-sm bg-primary text-white px-2 py-1 rounded">Oct 2021 - Dec 2022</span>
+                  </div>
+                  <p className="font-medium text-primary mb-1">LTIMindtree - Mumbai, India</p>
+                  <ul className="list-disc list-inside space-y-1 text-sm">
+                    <li>Developed and maintained Java-based enterprise applications</li>
+                    <li>Implemented Spring Security for authentication and authorization</li>
+                    <li>Worked on database design and optimization using MySQL and PostgreSQL</li>
+                    <li>Participated in Agile development methodologies and code reviews</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Education */}
+              <div className="bg-blue-50 dark:bg-blue-900 p-4 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4 text-primary">Education</h3>
+                <div>
+                  <h4 className="font-semibold">Bachelor of Technology (B.Tech)</h4>
+                  <p className="text-primary">Computer Science and Engineering</p>
+                  <p className="text-sm text-gray-600">Dr. A.P.J. Abdul Kalam Technical University</p>
+                  <div className="flex justify-between items-center mt-1">
+                    <span className="text-sm text-gray-600">2017 - 2021</span>
+                    <span className="text-sm bg-green-100 text-green-800 px-2 py-1 rounded">7.8 CGPA</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Skills */}
+              <div className="bg-green-50 dark:bg-green-900 p-4 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4 text-primary">Technical Skills</h3>
+                <div className="flex flex-wrap gap-2">
+                  {["Java", "Spring Boot", "Spring Framework", "Spring Security", "Microservices", "REST APIs", "MySQL", "PostgreSQL", "AWS", "Docker", "Git", "Maven", "JUnit", "Mockito", "Hibernate", "JPA", "Redis", "Apache Kafka"].map((skill, index) => (
+                    <span key={index} className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-1 rounded text-xs">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Certifications */}
+              <div className="bg-yellow-50 dark:bg-yellow-900 p-4 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4 text-primary">Certifications</h3>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-primary">🏆</span>
+                    <span className="text-sm">AWS Certified Cloud Practitioner</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-primary">🏆</span>
+                    <span className="text-sm">OOPs in Java, Spring Boot Micro-Services, AWS Practitioner, SQL, Agile Methodology</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
