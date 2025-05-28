@@ -83,7 +83,6 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
       <DialogContent 
         className="max-w-4xl max-h-[90vh] overflow-y-auto select-none"
         onContextMenu={handleContextMenu}
-        onSelectStart={handleSelectStart}
         style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
       >
         <DialogHeader>

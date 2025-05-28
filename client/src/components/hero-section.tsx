@@ -140,12 +140,25 @@ export function HeroSection() {
               Get In Touch
             </Button>
             <Button
-              onClick={viewResume}
+              onClick={() => {
+                console.log("Button clicked, showResume:", showResume);
+                setShowResume(true);
+                console.log("After setting, showResume should be true");
+              }}
               variant="outline"
               className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 rounded-full font-semibold transition-all duration-300"
             >
               <Eye className="mr-2 h-4 w-4" />
               View My Resume
+            </Button>
+            
+            {/* Test button to force modal open */}
+            <Button
+              onClick={() => setShowResume(true)}
+              variant="destructive"
+              className="px-4 py-2"
+            >
+              TEST MODAL
             </Button>
           </motion.div>
 
@@ -196,9 +209,13 @@ export function HeroSection() {
       </motion.div>
 
       {/* Resume Modal */}
+      {console.log("Rendering ResumeModal with isOpen:", showResume)}
       <ResumeModal 
         isOpen={showResume}
-        onClose={() => setShowResume(false)}
+        onClose={() => {
+          console.log("Closing modal");
+          setShowResume(false);
+        }}
       />
     </section>
   );
