@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Download, Mail } from "lucide-react";
+import { ChevronDown, Eye, Mail } from "lucide-react";
 import { CodeBackground } from "./code-background";
+import { ResumeModal } from "./resume-modal";
 
 export function HeroSection() {
   const [typedText, setTypedText] = useState("");
+  const [showResume, setShowResume] = useState(false);
   const fullText = "Backend Java Developer & Team Lead";
 
   useEffect(() => {
@@ -29,14 +31,8 @@ export function HeroSection() {
     }
   };
 
-  const downloadResume = () => {
-    // Create a download link for the resume
-    const link = document.createElement('a');
-    link.href = '/resume.pdf'; // This would be the actual resume file path
-    link.download = 'Abhishek_Mishra_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const viewResume = () => {
+    setShowResume(true);
   };
 
   return (
@@ -143,12 +139,12 @@ export function HeroSection() {
               Get In Touch
             </Button>
             <Button
-              onClick={downloadResume}
+              onClick={viewResume}
               variant="outline"
               className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 rounded-full font-semibold transition-all duration-300"
             >
-              <Download className="mr-2 h-4 w-4" />
-              Download Resume
+              <Eye className="mr-2 h-4 w-4" />
+              View My Resume
             </Button>
           </motion.div>
 
@@ -197,6 +193,12 @@ export function HeroSection() {
       >
         <ChevronDown className="h-6 w-6 text-muted-foreground" />
       </motion.div>
+
+      {/* Resume Modal */}
+      <ResumeModal 
+        isOpen={showResume}
+        onClose={() => setShowResume(false)}
+      />
     </section>
   );
 }
