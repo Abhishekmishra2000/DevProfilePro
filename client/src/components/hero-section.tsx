@@ -32,6 +32,7 @@ export function HeroSection() {
   };
 
   const viewResume = () => {
+    console.log("View Resume clicked!");
     setShowResume(true);
   };
 
