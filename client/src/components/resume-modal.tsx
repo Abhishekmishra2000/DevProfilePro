@@ -11,6 +11,14 @@ interface ResumeModalProps {
 }
 
 export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
+  // Prevent right-click and text selection to protect content
+  const handleContextMenu = (e: React.MouseEvent) => {
+    e.preventDefault();
+  };
+
+  const handleSelectStart = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+  };
   const resumeData = {
     name: "Abhishek Mishra",
     title: "Backend Java Developer & Team Lead",
@@ -72,7 +80,12 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+      <DialogContent 
+        className="max-w-4xl max-h-[90vh] overflow-y-auto select-none"
+        onContextMenu={handleContextMenu}
+        onSelectStart={handleSelectStart}
+        style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
+      >
         <DialogHeader>
           <DialogTitle className="flex items-center justify-between">
             <span className="text-2xl font-bold gradient-text">Resume</span>
