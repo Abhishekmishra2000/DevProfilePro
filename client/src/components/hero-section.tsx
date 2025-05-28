@@ -83,7 +83,7 @@ export function HeroSection() {
           >
             <div className="relative">
               <motion.img
-                src="@assets/WhatsApp Image 2025-05-26 at 11.43.36 AM.jpeg"
+                src="@assets/WhatsApp Image 2025-05-28 at 11.45.40 AM.jpeg"
                 alt="Abhishek Mishra - Java Developer"
                 className="w-40 h-40 rounded-full object-cover border-4 border-primary shadow-2xl"
                 animate={{ 
