@@ -133,6 +133,13 @@ export function ProjectsSection() {
             </motion.div>
           ))}
         </div>
+
+        {/* Project Details Modal */}
+        <ProjectDetailsModal 
+          project={selectedProject}
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+        />
       </div>
     </section>
   );

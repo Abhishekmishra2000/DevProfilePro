@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Code, Cog, Database, Wrench } from "lucide-react";
+import { InteractiveSkills } from "./interactive-skills";
+import { CodeBackground } from "./code-background";
 
 const skillCategories = [
   {
@@ -43,8 +45,9 @@ const certifications = [
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-20 relative">
+      <CodeBackground />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -103,6 +106,17 @@ export function SkillsSection() {
             );
           })}
         </div>
+
+        {/* Interactive Skills Showcase */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <InteractiveSkills />
+        </motion.div>
 
         {/* Certifications */}
         <motion.div
