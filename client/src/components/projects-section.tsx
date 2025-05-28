@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Eye, Github } from "lucide-react";
+import { ProjectDetailsModal } from "./project-details-modal";
 
 const projects = [
   {
@@ -29,9 +31,12 @@ const projects = [
 ];
 
 export function ProjectsSection() {
-  const handleViewProject = (projectName: string) => {
-    // In a real application, this would navigate to project details
-    console.log(`Viewing project: ${projectName}`);
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleViewProject = (project: typeof projects[0]) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
   };
 
   const handleViewCode = (projectName: string) => {
@@ -107,7 +112,7 @@ export function ProjectsSection() {
                     <Button
                       variant="ghost"
                       size="sm"
-                      onClick={() => handleViewProject(project.name)}
+                      onClick={() => handleViewProject(project)}
                       className="text-primary hover:text-primary/80"
                     >
                       <Eye className="mr-1 h-4 w-4" />

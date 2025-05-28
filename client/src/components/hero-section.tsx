@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Download, Mail } from "lucide-react";
+import { CodeBackground } from "./code-background";
 
 export function HeroSection() {
   const [typedText, setTypedText] = useState("");
@@ -40,6 +41,9 @@ export function HeroSection() {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+      {/* Code Background */}
+      <CodeBackground />
+      
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
