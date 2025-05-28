@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Eye, Mail } from "lucide-react";
 import { CodeBackground } from "./code-background";
-import { ResumeModal } from "./resume-modal";
+import { SimpleResumeModal } from "./simple-resume-modal";
 
 export function HeroSection() {
   const [typedText, setTypedText] = useState("");
@@ -152,14 +152,7 @@ export function HeroSection() {
               View My Resume
             </Button>
             
-            {/* Test button to force modal open */}
-            <Button
-              onClick={() => setShowResume(true)}
-              variant="destructive"
-              className="px-4 py-2"
-            >
-              TEST MODAL
-            </Button>
+
           </motion.div>
 
           {/* Social Links */}
@@ -209,13 +202,9 @@ export function HeroSection() {
       </motion.div>
 
       {/* Resume Modal */}
-      {console.log("Rendering ResumeModal with isOpen:", showResume)}
-      <ResumeModal 
+      <SimpleResumeModal 
         isOpen={showResume}
-        onClose={() => {
-          console.log("Closing modal");
-          setShowResume(false);
-        }}
+        onClose={() => setShowResume(false)}
       />
     </section>
   );
