@@ -3,23 +3,23 @@ import { motion, useInView } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 
 const skills = [
-  { name: "Java & Spring Boot", percentage: 90 },
-  { name: "Microservices Architecture", percentage: 85 },
+  { name: "Core Java & Spring Boot", percentage: 90 },
+  { name: "Microservices Architecture", percentage: 70 },
   { name: "AWS Cloud Services", percentage: 80 },
   { name: "Database Management", percentage: 88 },
-  { name: "DevOps & CI/CD", percentage: 75 },
+  { name: "Angular JS", percentage: 60 },
 ];
 
 const stats = [
-  { value: "3.6+", label: "Years Experience", color: "text-primary" },
-  { value: "15+", label: "Projects Completed", color: "text-chart-4" },
+  { value: "3+", label: "Years Experience", color: "text-primary" },
+  { value: "6+", label: "Projects Completed", color: "text-chart-4" },
   { value: "5", label: "Team Members", color: "text-chart-2" },
-  { value: "10+", label: "Awards Won", color: "text-chart-1" },
+  { value: "3", label: "Awards Won", color: "text-chart-1" },
 ];
 
 export function AboutSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, threshold: 0.3 });
+  const isInView = useInView(ref, { once: true });
   const [animatedStats, setAnimatedStats] = useState(stats.map(() => 0));
 
   useEffect(() => {
@@ -58,7 +58,12 @@ export function AboutSection() {
         >
           <h2 className="text-4xl font-bold mb-4 gradient-text">About Me</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Passionate about creating efficient, scalable solutions that drive business success
+            {/* Passionate about creating efficient, scalable solutions that drive business success */}
+          I’m a dedicated and result-oriented Backend Developer with over 3.6 years of experience in Java and Spring Boot,
+          currently leading a team while building scalable, secure, and high-performance applications. I’m passionate About
+          solving complex backend challenges and continuously expanding my technical expertise.
+
+
           </p>
         </motion.div>
 
@@ -71,14 +76,28 @@ export function AboutSection() {
           >
             <h3 className="text-2xl font-semibold mb-6">My Journey</h3>
             <p className="text-muted-foreground mb-6">
-              Currently working as a Team Lead, guiding a team of 4-5 developers through project planning,
+              {/* Currently working as a Team Lead, guiding a team of 4-5 developers through project planning,
               code reviews, and technical decision-making. My expertise spans from developing fault replication
-              tools to architecting secure financial data management platforms.
+              tools to architecting secure financial data management platforms. */}
+              My professional journey began after completing my B.Sc. in Information Technology Management 
+              from Ravenshaw University. I joined LTIMindtree, where I contributed to modernizing legacy 
+              systems, developing fault replication and automated reporting tools, and helping transition
+               monolithic applications to microservices using Java and Spring Boot.
+
+
+              I then advanced to Quotus Software Solutions as a Senior Software Engineer, where I led the 
+              development of Secure Card, a financial data management platform leveraging Java 21, AWS Lambda,
+              and encryption with AWS KMS. My focus on security, modular design, and serverless architecture
+               has allowed me to build resilient applications that meet real-world demands.
+
             </p>
             <p className="text-muted-foreground mb-6">
-              I specialize in Java Spring Boot applications, microservices architecture, and cloud technologies.
+              {/* I specialize in Java Spring Boot applications, microservices architecture, and cloud technologies.
               My experience includes transitioning monolithic applications to microservices and implementing
-              robust security measures for sensitive data handling.
+              robust security measures for sensitive data handling. */}
+                            Along the way, I’ve honed skills in microservices, cloud technologies (AWS), unit testing,
+                            and DevOps practices—consistently earning accolades for delivering quality solutions with
+                            zero defects. 
             </p>
 
             {/* Statistics */}
