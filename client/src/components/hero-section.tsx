@@ -4,6 +4,10 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown, Eye, Mail } from "lucide-react";
 import { CodeBackground } from "./code-background";
 import { SimpleResumeModal } from "./simple-resume-modal";
+import abhiImg from "../assets/Abhi.jpg";
+import { FaAward, FaStar } from "react-icons/fa";
+import { MdWorkspacePremium } from "react-icons/md";
+import { SiSpring } from "react-icons/si";
 
 export function HeroSection() {
   const [typedText, setTypedText] = useState("");
@@ -79,19 +83,19 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="relative">
-              <motion.img
-                src="@assets/WhatsApp Image 2025-05-28 at 11.45.40 AM.jpeg"
-                alt="Abhishek Mishra - Java Developer"
-                className="w-40 h-40 rounded-full object-cover border-4 border-primary shadow-2xl"
-                animate={{ 
-                  boxShadow: [
-                    "0 25px 50px -12px rgba(99, 102, 241, 0.25)",
-                    "0 25px 50px -12px rgba(139, 92, 246, 0.25)",
-                    "0 25px 50px -12px rgba(99, 102, 241, 0.25)"
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              />
+             <motion.img
+  src={abhiImg}
+  alt="Abhishek Mishra - Java Developer"
+  className="w-40 h-40 rounded-full object-cover border-4 border-primary shadow-2xl"
+  animate={{
+    boxShadow: [
+      "0 25px 50px -12px rgba(99, 102, 241, 0.25)",
+      "0 25px 50px -12px rgba(139, 92, 246, 0.25)",
+      "0 25px 50px -12px rgba(99, 102, 241, 0.25)"
+    ]
+  }}
+  transition={{ duration: 3, repeat: Infinity }}
+/>
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-chart-4 opacity-20 animate-pulse" />
             </div>
           </motion.div>
@@ -139,7 +143,7 @@ export function HeroSection() {
               <Mail className="mr-2 h-4 w-4" />
               Get In Touch
             </Button>
-            <button
+            {/* <button
               onClick={() => {
                 console.log("Direct button clicked!");
                 setShowResume(true);
@@ -148,7 +152,7 @@ export function HeroSection() {
             >
               <Eye className="h-4 w-4" />
               View My Resume
-            </button>
+            </button> */}
             
 
           </motion.div>
@@ -295,19 +299,27 @@ export function HeroSection() {
               </div>
 
               {/* Certifications */}
-              <div className="bg-yellow-50 dark:bg-yellow-900 p-4 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4 text-primary">Certifications</h3>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-primary">🏆</span>
-                    <span className="text-sm">AWS Certified Cloud Practitioner</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-primary">🏆</span>
-                    <span className="text-sm">OOPs in Java, Spring Boot Micro-Services, AWS Practitioner, SQL, Agile Methodology</span>
-                  </div>
-                </div>
-              </div>
+              <div className="mt-8">
+  <h3 className="text-2xl font-bold text-center mb-8 text-primary">Certifications & Recognition</h3>
+  <div className="flex flex-wrap justify-center gap-6">
+    <div className="flex flex-col items-center justify-center bg-gradient-to-r from-blue-500 to-purple-400 text-white rounded-xl px-8 py-6 min-w-[220px] shadow-lg">
+      <MdWorkspacePremium size={36} className="mb-2" />
+      <span className="font-semibold text-lg">AWS Practitioner</span>
+    </div>
+    <div className="flex flex-col items-center justify-center bg-gradient-to-r from-purple-400 to-green-400 text-white rounded-xl px-8 py-6 min-w-[220px] shadow-lg">
+      <FaAward size={36} className="mb-2" />
+      <span className="font-semibold text-lg">CREST Awards</span>
+    </div>
+    <div className="flex flex-col items-center justify-center bg-gradient-to-r from-green-400 to-blue-400 text-white rounded-xl px-8 py-6 min-w-[220px] shadow-lg">
+      <FaStar size={36} className="mb-2" />
+      <span className="font-semibold text-lg">SPOT ON Awards</span>
+    </div>
+    <div className="flex flex-col items-center justify-center bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-xl px-8 py-6 min-w-[220px] shadow-lg">
+      <SiSpring size={36} className="mb-2" />
+      <span className="font-semibold text-lg">Spring Boot Expert</span>
+    </div>
+  </div>
+</div>
             </div>
           </div>
         </div>
